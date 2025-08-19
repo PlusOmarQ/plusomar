@@ -72,7 +72,7 @@ const App = memo(() => {
           {/* SVG Logo */}
           <div className="mx-auto mb-6 sm:mb-8 flex items-center justify-center" style={{ width: '60px', height: '60px' }}>
             <img 
-              src="/logo.svg" 
+              src="./logo.svg" 
               alt="Plusomar Logo" 
               className="w-full h-full object-contain"
             />
@@ -81,7 +81,7 @@ const App = memo(() => {
           {/* Main Studio Image */}
           <div className="max-w-4xl mx-auto mb-4 sm:mb-8 px-2 sm:px-4">
             <img 
-              src="/memyselfi.webp" 
+              src="./memyselfi.webp" 
               alt="Omar's Studio"
               className="w-full object-cover mb-2"
               loading="lazy"
