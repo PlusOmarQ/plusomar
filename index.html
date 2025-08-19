@@ -100,15 +100,11 @@
     <!-- Performance: Load main script with proper attributes -->
     <script type="module" src="/src/main.tsx" defer></script>
     
-    <!-- Service Worker Registration -->
+    <!-- Service Worker Registration - Temporarily Disabled -->
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log('SW registered'))
-            .catch(() => console.log('SW registration failed'));
-        });
-      }
+      // Service worker temporarily disabled to fix loading issues
+      // Will re-enable once main site is working properly
+      console.log('Service worker registration disabled for debugging');
     </script>
     
     <style>
