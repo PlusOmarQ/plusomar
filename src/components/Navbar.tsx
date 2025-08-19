@@ -41,7 +41,7 @@ export const Navbar = memo(() => {
                 className="text-white hover:bg-white/10 transition-all duration-300 hover:scale-110"
                 aria-label="Open menu"
               >
-                <Menu className={`h-6 w-6 transition-transform duration-250 ${isMenuOpen ? 'rotate-90 scale-110' : 'rotate-0'}`} />
+                <Menu className={`h-6 w-6 transition-all duration-300 transform-gpu ${isMenuOpen ? 'rotate-90 scale-110' : 'rotate-0'}`} />
               </Button>
             </SheetTrigger>
             
@@ -55,7 +55,7 @@ export const Navbar = memo(() => {
                         key={item.label}
                         className="menu-item-stagger"
                         style={{
-                          animationDelay: `${0.2 + index * 0.1}s`,
+                          animationDelay: `${0.25 + index * 0.12}s`,
                           animationFillMode: 'forwards',
                         }}
                       >
@@ -93,7 +93,7 @@ export const Navbar = memo(() => {
                 <div 
                   className="px-6 social-icons-animate"
                   style={{
-                    animationDelay: '0.5s',
+                    animationDelay: '0.65s',
                     animationFillMode: 'forwards',
                   }}
                 >
@@ -108,7 +108,7 @@ export const Navbar = memo(() => {
                         aria-label={social.label}
                         onClick={handleLinkClick}
                         style={{
-                          animationDelay: `${0.6 + index * 0.08}s`,
+                          animationDelay: `${0.75 + index * 0.1}s`,
                           animationFillMode: 'forwards',
                         }}
                       >

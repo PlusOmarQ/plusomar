@@ -115,20 +115,22 @@
   }
 }
 
-/* Enhanced burger menu animations */
+/* Enhanced smooth burger menu animations */
 @keyframes burger-slide-in {
   0% {
-    transform: translateX(30%);
+    transform: translate3d(-100%, 0, 0);
     opacity: 0;
     background-color: #212121 !important;
   }
-  60% {
-    transform: translateX(5%);
-    opacity: 0.8;
-    background-color: #212121 !important;
+  40% {
+    opacity: 0.3;
+  }
+  70% {
+    transform: translate3d(2%, 0, 0);
+    opacity: 0.9;
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
     background-color: #212121 !important;
   }
@@ -136,17 +138,16 @@
 
 @keyframes burger-slide-out {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
     background-color: #212121 !important;
   }
-  40% {
-    transform: translateX(-20%);
-    opacity: 0.6;
-    background-color: #212121 !important;
+  30% {
+    transform: translate3d(-10%, 0, 0);
+    opacity: 0.8;
   }
   100% {
-    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0);
     opacity: 0;
     background-color: #212121 !important;
   }
@@ -155,122 +156,155 @@
 @keyframes burger-content-fade-in {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 30px, 0) scale(0.95);
   }
-  50% {
+  30% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translate3d(0, 20px, 0) scale(0.97);
+  }
+  70% {
+    opacity: 0.7;
+    transform: translate3d(0, 5px, 0) scale(1.01);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
-/* Ensure burger menu always has dark background */
+/* Ensure burger menu always has dark background with GPU acceleration */
 .burger-menu-slide {
   background-color: #212121 !important;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .burger-menu-slide[data-state="open"] {
-  animation: burger-slide-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: burger-slide-in 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   background-color: #212121 !important;
 }
 
 .burger-menu-slide[data-state="closed"] {
-  animation: burger-slide-out 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: burger-slide-out 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   background-color: #212121 !important;
 }
 
 .burger-menu-slide[data-state="open"] > * {
-  animation: burger-content-fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards;
+  animation: burger-content-fade-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
-/* Menu item stagger animation */
+/* Smooth menu item stagger animation */
 .menu-item-stagger {
   opacity: 0;
-  transform: translateY(30px) translateX(-20px);
-  transition: all 0.3s ease;
+  transform: translate3d(-25px, 40px, 0) scale(0.9);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .burger-menu-slide[data-state="open"] .menu-item-stagger {
-  animation: menu-item-slide-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation: menu-item-slide-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 @keyframes menu-item-slide-in {
   0% {
     opacity: 0;
-    transform: translateY(30px) translateX(-20px) scale(0.8);
+    transform: translate3d(-25px, 40px, 0) scale(0.9);
   }
-  60% {
-    transform: translateY(-5px) translateX(5px) scale(1.05);
+  40% {
+    opacity: 0.6;
+    transform: translate3d(8px, 10px, 0) scale(1.02);
+  }
+  70% {
+    opacity: 0.9;
+    transform: translate3d(-2px, -3px, 0) scale(1.01);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) translateX(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 
 
-/* Social icons animation */
+/* Smooth social icons animation */
 .social-icons-animate {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translate3d(0, 35px, 0) scale(0.95);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .burger-menu-slide[data-state="open"] .social-icons-animate {
-  animation: social-icons-fade-in 0.5s ease-out forwards;
+  animation: social-icons-fade-in 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .social-icon-item {
   opacity: 0;
-  transform: translateY(20px) scale(0.5);
+  transform: translate3d(0, 25px, 0) scale(0.7) rotateY(-90deg);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .burger-menu-slide[data-state="open"] .social-icon-item {
-  animation: social-icon-pop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation: social-icon-pop 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 @keyframes social-icons-fade-in {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 35px, 0) scale(0.95);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translate3d(0, 5px, 0) scale(1.02);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes social-icon-pop {
   0% {
     opacity: 0;
-    transform: translateY(20px) scale(0.5) rotate(-180deg);
+    transform: translate3d(0, 25px, 0) scale(0.7) rotateY(-90deg);
   }
-  60% {
-    transform: translateY(-5px) scale(1.2) rotate(10deg);
+  40% {
+    opacity: 0.7;
+    transform: translate3d(0, 8px, 0) scale(1.1) rotateY(-20deg);
+  }
+  70% {
+    opacity: 0.9;
+    transform: translate3d(0, -2px, 0) scale(1.05) rotateY(5deg);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
   }
 }
 
-/* Backdrop animation enhancement */
+/* Smooth backdrop animation enhancement */
 .bg-background\/80[data-state="open"] {
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  will-change: opacity, backdrop-filter;
 }
 
 .bg-background\/80[data-state="closed"] {
-  animation: fade-out 0.4s ease-in forwards;
+  animation: fade-out 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: opacity, backdrop-filter;
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
     backdrop-filter: blur(0px);
+  }
+  50% {
+    opacity: 0.6;
+    backdrop-filter: blur(2px);
   }
   100% {
     opacity: 1;
@@ -282,6 +316,10 @@
   0% {
     opacity: 1;
     backdrop-filter: blur(4px);
+  }
+  50% {
+    opacity: 0.4;
+    backdrop-filter: blur(2px);
   }
   100% {
     opacity: 0;
