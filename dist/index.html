@@ -10,14 +10,48 @@
     <meta name="author" content="Omar AlQabandi" />
     
     <!-- Performance Optimization -->
-    <link rel="preload" href="/plusomar/logo.svg" as="image" type="image/svg+xml" />
-    <link rel="preload" href="/plusomar/memyselfi.webp" as="image" type="image/webp" />
-    <link rel="preconnect" href="https://photos.smugmug.com" />
+    <link rel="preload" href="/plusomar/logo.svg" as="image" type="image/svg+xml" crossorigin="anonymous" />
+    <link rel="preload" href="/plusomar/memyselfi.webp" as="image" type="image/webp" crossorigin="anonymous" />
+    <link rel="preload" as="script" href="data:application/octet-stream;base64,aW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0Jw0KaW1wb3J0IFJlYWN0RE9NIGZyb20gJ3JlYWN0LWRvbS9jbGllbnQnDQppbXBvcnQgQXBwIGZyb20gJy4vQXBwLnRzeCcNCmltcG9ydCAnLi9pbmRleC5jc3MnDQoNClJlYWN0RE9NLmNyZWF0ZVJvb3QoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jvb3QnKSEpLnJlbmRlcigNCiAgPFJlYWN0LlN0cmljdE1vZGU+DQogICAgPEFwcCAvPg0KICA8L1JlYWN0LlN0cmljdE1vZGU+LA0KKQ0K" />
+    
+    <!-- Critical Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://photos.smugmug.com" crossorigin />
     <link rel="dns-prefetch" href="//photos.smugmug.com" />
-    <link rel="preconnect" href="https://www.instagram.com" />
-    <link rel="preconnect" href="https://twitter.com" />
-    <link rel="preconnect" href="https://www.linkedin.com" />
-    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://www.instagram.com" crossorigin />
+    <link rel="preconnect" href="https://twitter.com" crossorigin />
+    <link rel="preconnect" href="https://www.linkedin.com" crossorigin />
+    <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+    
+    <!-- Critical CSS Inline -->
+    <style>
+      /* Critical above-the-fold styles */
+      body { 
+        background-color: #212121; 
+        color: white; 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      #root { min-height: 100vh; }
+      .critical-nav { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        z-index: 50; 
+        height: 64px; 
+        background-color: #212121;
+      }
+      @media (max-width: 768px) {
+        .critical-nav { 
+          top: auto; 
+          bottom: 0; 
+          border-top: 1px solid #303030; 
+        }
+      }
+    </style>
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
@@ -54,14 +88,45 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/plusomar/assets/js/index-D3eAbSSj.js"></script>
-    <link rel="modulepreload" crossorigin href="/plusomar/assets/js/vendor-CG1BCU3E.js">
-    <link rel="modulepreload" crossorigin href="/plusomar/assets/js/ui-CRyQrY7T.js">
-    <link rel="modulepreload" crossorigin href="/plusomar/assets/js/utils--BulIq_u.js">
-    <link rel="modulepreload" crossorigin href="/plusomar/assets/js/icons-C1-k-h3N.js">
-    <link rel="stylesheet" crossorigin href="/plusomar/assets/css/index-B2Ne64Uh.css">
+    <script type="module" crossorigin src="/plusomar/assets/js/index-8kfOJj-W.js"></script>
+    <link rel="stylesheet" crossorigin href="/plusomar/assets/css/index-CpzP_sXU.css">
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navigation" class="skip-link">Skip to navigation</a>
+    
+    <div id="root" role="application" aria-label="Omar AlQabandi Portfolio"></div>
+    
+    <!-- Performance: Load main script with proper attributes -->
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('SW registered'))
+            .catch(() => console.log('SW registration failed'));
+        });
+      }
+    </script>
+    
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 100;
+        font-weight: bold;
+      }
+      .skip-link:focus {
+        top: 6px;
+      }
+    </style>
   </body>
 </html>

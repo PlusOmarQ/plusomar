@@ -23,19 +23,33 @@ export default defineConfig({
           // Split vendor libraries into separate chunks
           vendor: ['react', 'react-dom'],
           ui: ['@radix-ui/react-dialog', '@radix-ui/react-slot'],
-          icons: ['lucide-react'],
+          icons: ['lucide-react', 'react-icons/fa'],
           utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
         },
         // Optimize chunk file names
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
+      },
+      // Tree shaking optimization
+      treeshake: {
+        moduleSideEffects: false,
+        unknownGlobalSideEffects: false
       }
     },
     // Increase chunk size warning limit
     chunkSizeWarningLimit: 1000,
     // Enable CSS code splitting
     cssCodeSplit: true,
+    // Additional optimizations
+    reportCompressedSize: false,
+    // Minification options
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
   // Optimize development server
   server: {

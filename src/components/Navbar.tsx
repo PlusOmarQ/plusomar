@@ -28,8 +28,11 @@ export const Navbar = memo(() => {
     <>
       {/* Navbar - Top on desktop, Bottom on mobile/tablet */}
       <nav 
+        id="navigation"
         className="fixed md:top-0 bottom-0 md:bottom-auto left-0 right-0 z-50 text-white h-16 navbar-mobile-border" 
         style={{ backgroundColor: '#212121' }}
+        role="navigation"
+        aria-label="Main navigation menu"
       >
         <div className="max-w-4xl mx-auto px-2 sm:px-4 flex items-center justify-between h-full">
           {/* Burger Menu */}
@@ -38,18 +41,30 @@ export const Navbar = memo(() => {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="text-white hover:bg-white/10 transition-all duration-300 hover:scale-110"
-                aria-label="Open menu"
+                className="text-white hover:bg-white/10 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-navigation-menu"
               >
-                <Menu className={`h-6 w-6 transition-all duration-300 transform-gpu ${isMenuOpen ? 'rotate-90 scale-110' : 'rotate-0'}`} />
+                <Menu 
+                  className={`h-6 w-6 transition-all duration-300 transform-gpu ${isMenuOpen ? 'rotate-90 scale-110' : 'rotate-0'}`}
+                  aria-hidden="true"
+                />
               </Button>
             </SheetTrigger>
             
             <SheetContent side="left" className="w-full sm:w-96 text-white p-0 border-0">
-              <div className="flex flex-col h-full justify-center text-center">
+              <div 
+                className="flex flex-col h-full justify-center text-center"
+                id="mobile-navigation-menu"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="mobile-menu-title"
+              >
+                <h2 id="mobile-menu-title" className="sr-only">Navigation Menu</h2>
                 {/* Main Navigation */}
                 <div className="space-y-8 mb-12">
-                  <nav className="space-y-6">
+                  <nav className="space-y-6" role="navigation" aria-label="Main navigation links">
                     {menuItems.map((item, index) => (
                       <div 
                         key={item.label}
@@ -64,20 +79,22 @@ export const Navbar = memo(() => {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-2xl font-light text-white hover:text-gray-300 transition-all duration-300 hover:scale-105 hover:translate-x-2"
+                            className="block text-2xl font-light text-white hover:text-gray-300 transition-all duration-300 hover:scale-105 hover:translate-x-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-2 py-1"
                             onClick={handleLinkClick}
+                            aria-label={`${item.label} - Opens in new window`}
                           >
                             {item.label}
                           </a>
                         ) : (
                           <a
                             href={item.href}
-                            className={`block text-2xl font-light transition-all duration-300 hover:scale-105 hover:translate-x-2 ${
+                            className={`block text-2xl font-light transition-all duration-300 hover:scale-105 hover:translate-x-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-2 py-1 ${
                               item.isActive 
                                 ? 'text-white' 
                                 : 'text-white hover:text-gray-300'
                             }`}
                             onClick={handleLinkClick}
+                            aria-current={item.isActive ? "page" : undefined}
                           >
                             {item.label}
                           </a>

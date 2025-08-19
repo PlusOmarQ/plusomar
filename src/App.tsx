@@ -66,33 +66,47 @@ const App = memo(() => {
   return (
     <div className="min-h-screen text-white overflow-x-hidden" style={{ backgroundColor: '#212121' }}>
       <Navbar />
-      <main className="pb-16 md:pb-0">
+      <main id="main-content" className="pb-16 md:pb-0" role="main">
         {/* Hero Section */}
-        <section className="text-center py-6 sm:py-12 pt-6 sm:pt-10 pb-0">
+        <section className="text-center py-6 sm:py-12 pt-6 sm:pt-10 pb-0" aria-labelledby="hero-heading">
           {/* SVG Logo */}
           <div className="mx-auto mb-6 sm:mb-8 flex items-center justify-center" style={{ width: '60px', height: '60px' }}>
             <img 
               src="./logo.svg" 
-              alt="Plusomar Logo" 
+              alt="Plusomar - Omar AlQabandi's professional logo representing digital innovation and photography" 
               className="w-full h-full object-contain"
+              width="60"
+              height="60"
+              loading="eager"
             />
           </div>
           
           {/* Main Studio Image */}
           <div className="max-w-4xl mx-auto mb-4 sm:mb-8 px-2 sm:px-4">
-            <img 
-              src="./memyselfi.webp" 
-              alt="Omar's Studio"
-              className="w-full object-cover mb-2"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source 
+                srcSet="./memyselfi.webp" 
+                type="image/webp"
+                media="(min-width: 768px)"
+              />
+              <img 
+                src="./memyselfi.webp" 
+                alt="Omar AlQabandi in his professional photography studio, showcasing his creative workspace with professional lighting and equipment"
+                className="w-full object-cover mb-2 rounded-lg"
+                loading="eager"
+                decoding="async"
+                width="800"
+                height="600"
+                style={{ aspectRatio: '4/3' }}
+              />
+            </picture>
           </div>
         </section>
 
         {/* Quote and Bio Section */}
-        <section className="max-w-4xl mx-auto px-2 sm:px-4 pt-4 pb-0">
-          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8 text-center leading-tight">
+        <section className="max-w-4xl mx-auto px-2 sm:px-4 pt-4 pb-0" aria-labelledby="hero-heading">
+          <h1 id="hero-heading" className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8 text-center leading-tight">
+            <span className="sr-only">Omar AlQabandi - </span>
             "Omar, Who is he?" - Yoda
           </h1>
           
@@ -101,40 +115,48 @@ const App = memo(() => {
           </p>
 
           {/* La Cueva Ventana Image */}
-          <a href="https://plusomar.smugmug.com/Portfolio/i-hncj63G/A" target="_blank" rel="noopener noreferrer" className="block mb-12">
+          <a 
+            href="https://plusomar.smugmug.com/Portfolio/i-hncj63G/A" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block mb-12 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
+            aria-label="View full portfolio gallery featuring La Cueva Ventana photography"
+          >
             <img 
               src="https://photos.smugmug.com/Portfolio/i-hncj63G/0/KgCbQxBhdDdTQJwWM2qLRPDfDN3mmxmk4hv3prvm5/L/omarcave-EditFinal-L.jpg" 
-              alt="La Cueva Ventana"
+              alt="La Cueva Ventana cave formation in Puerto Rico, showcasing dramatic natural lighting and rock formations through Omar's professional photography"
               className="w-full h-64 object-cover rounded-lg hover:opacity-90 transition-opacity"
               loading="lazy"
               decoding="async"
+              width="800"
+              height="256"
             />
           </a>
         </section>
 
         {/* Experience Section */}
-        <section className="max-w-4xl mx-auto px-2 sm:px-4 py-8 sm:py-12 pt-0">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 border-b border-gray-700 pb-3 sm:pb-4">Experience</h2>
-          <div className="space-y-4 sm:space-y-6">
+        <section className="max-w-4xl mx-auto px-2 sm:px-4 py-8 sm:py-12 pt-0" aria-labelledby="experience-heading">
+          <h2 id="experience-heading" className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 border-b border-gray-700 pb-3 sm:pb-4">Professional Experience</h2>
+          <div className="space-y-4 sm:space-y-6" role="list" aria-label="Professional experience timeline">
             {experiences.map((exp, index) => (
-              <div key={index} className="border-l-2 pl-3 sm:pl-6" style={{ borderColor: '#d26249' }}>
+              <div key={index} className="border-l-2 pl-3 sm:pl-6" style={{ borderColor: '#d26249' }} role="listitem">
                 <h3 className="text-lg sm:text-xl font-semibold text-white">{exp.title}</h3>
                 {exp.company && <p className="text-sm sm:text-base text-gray-300">{exp.company}</p>}
-                <p className="text-gray-400 text-xs sm:text-sm">{exp.period}</p>
+                <p className="text-gray-400 text-xs sm:text-sm" aria-label={`Employment period: ${exp.period}`}>{exp.period}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Education Section */}
-        <section className="max-w-4xl mx-auto px-2 sm:px-4 py-8 sm:py-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 border-b border-gray-700 pb-3 sm:pb-4">Education</h2>
-          <div className="space-y-4 sm:space-y-6">
+        <section className="max-w-4xl mx-auto px-2 sm:px-4 py-8 sm:py-12" aria-labelledby="education-heading">
+          <h2 id="education-heading" className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 border-b border-gray-700 pb-3 sm:pb-4">Education & Training</h2>
+          <div className="space-y-4 sm:space-y-6" role="list" aria-label="Educational background and qualifications">
             {education.map((edu, index) => (
-              <div key={index} className="border-l-2 pl-3 sm:pl-6" style={{ borderColor: '#d26249' }}>
+              <div key={index} className="border-l-2 pl-3 sm:pl-6" style={{ borderColor: '#d26249' }} role="listitem">
                 <h3 className="text-lg sm:text-xl font-semibold text-white">{edu.title}</h3>
                 <p className="text-sm sm:text-base text-gray-300">{edu.institution}</p>
-                <p className="text-gray-400 text-xs sm:text-sm">{edu.period}</p>
+                <p className="text-gray-400 text-xs sm:text-sm" aria-label={`Study period: ${edu.period}`}>{edu.period}</p>
               </div>
             ))}
           </div>
