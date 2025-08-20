@@ -9,14 +9,7 @@
     <meta name="keywords" content="Omar AlQabandi, Digital Banking, Photography, Kuwait, Portfolio, Technology" />
     <meta name="author" content="Omar AlQabandi" />
     
-    <!-- Performance Optimization -->
-    <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" crossorigin="anonymous" />
-    <link rel="preload" href="/memyselfi.webp" as="image" type="image/webp" crossorigin="anonymous" />
-    <link rel="preload" as="style" href="/src/index.css" />
-    <link rel="preload" as="script" href="/src/main.tsx" />
-    
     <!-- Critical Resource Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://photos.smugmug.com" crossorigin />
     <link rel="dns-prefetch" href="//photos.smugmug.com" />
     <link rel="preconnect" href="https://www.instagram.com" crossorigin />
@@ -97,37 +90,21 @@
     
     <div id="root" role="application" aria-label="Omar AlQabandi Portfolio"></div>
     
-    <!-- Performance: Load main script with proper attributes -->
-    <script type="module" src="/src/main.tsx" defer></script>
+    <!-- React App Entry Point -->
+    <script type="module" src="/src/main.tsx"></script>
     
     <!-- Service Worker Registration -->
     <script>
-      if ('serviceWorker' in navigator && 'caches' in window) {
-        window.addEventListener('load', async () => {
-          try {
-            // Register service worker with proper base path handling
-            const registration = await navigator.serviceWorker.register('./sw.js', {
-              scope: './'
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js?v=' + Date.now())
+            .then(registration => {
+              console.log('SW registered:', registration.scope);
+            })
+            .catch(error => {
+              console.log('SW registration failed:', error);
             });
-            console.log('SW registered successfully:', registration.scope);
-            
-            // Handle updates
-            registration.addEventListener('updatefound', () => {
-              console.log('SW update found');
-            });
-            
-          } catch (error) {
-            console.log('SW registration failed:', error);
-            // Continue without service worker - not critical for core functionality
-          }
         });
-        
-        // Handle service worker messages
-        navigator.serviceWorker.addEventListener('message', (event) => {
-          console.log('SW message:', event.data);
-        });
-      } else {
-        console.log('Service workers not supported');
       }
     </script>
     
