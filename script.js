@@ -350,14 +350,3 @@ if (document.readyState === 'loading') {
 
 // Export for potential external use
 window.PortfolioApp = PortfolioApp;
-
-// Hot reload support for development
-if (module && module.hot) {
-  module.hot.accept();
-  
-  module.hot.dispose(() => {
-    if (portfolioApp) {
-      portfolioApp.destroy();
-    }
-  });
-}

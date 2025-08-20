@@ -1,43 +1,43 @@
 {
-  "name": "plusomar-website",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "plusomar-portfolio",
+  "version": "2.0.0",
+  "description": "Omar AlQabandi's portfolio website - High-performance vanilla HTML/CSS/JS",
+  "main": "index.html",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "build:analyze": "vite build --mode analyze",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "optimize": "npm run build && npm run preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "serve": "python -m http.server 8080",
+    "serve-node": "npx http-server . -p 8080 -c-1",
+    "deploy": "gh-pages -d .",
+    "test": "echo \"No tests specified\" && exit 0"
   },
-  "dependencies": {
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "lucide-react": "^0.294.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.5.0",
-    "tailwind-merge": "^2.0.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
+  "keywords": [
+    "portfolio",
+    "vanilla-js",
+    "html",
+    "css",
+    "javascript",
+    "responsive",
+    "accessibility",
+    "performance",
+    "omar-alqabandi",
+    "plusomar"
+  ],
+  "author": "Omar AlQabandi <omar@plusomar.com>",
+  "license": "MIT",
   "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "gh-pages": "^6.3.0",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
-  }
+    "gh-pages": "^6.0.0",
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlusOmarQ/plusomar.git"
+  },
+  "homepage": "https://plusomarq.github.io/plusomar/",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
