@@ -84,7 +84,7 @@
 
       <!-- Logo -->
       <div class="logo-container">
-        <span class="logo-text">PLUSOMAR</span>
+        <span class="logo-text"></span>
       </div>
 
       <!-- Desktop Social Icons -->
@@ -203,17 +203,18 @@
       <div class="hero-image">
         <picture>
           <source 
-            srcset="./memyselfi.webp" 
+            srcset="./memyselfi-small.webp 800w, ./memyselfi.webp 1200w" 
             type="image/webp"
-            media="(min-width: 768px)"
+            sizes="(max-width: 768px) 100vw, 800px"
           >
           <img 
-            src="./memyselfi.webp" 
+            src="./memyselfi-small.webp" 
             alt="Omar AlQabandi in his professional photography studio, showcasing his creative workspace with professional lighting and equipment"
             loading="eager"
             decoding="async"
             width="800"
             height="600"
+            style="aspect-ratio: 4/3; object-fit: cover;"
           >
         </picture>
       </div>
@@ -230,23 +231,20 @@
         Born and Raised in Kuwait, Lived in the USA for 7 years where I managed to graduate from Missouri State University with a bachelors degree in Computer Information Systems. Currently working in one of the leading banks in Kuwait. I'm a guy who enjoys technology, traveling and shooting photos.
       </p>
 
-      <!-- La Cueva Ventana Image -->
-      <a 
-        href="https://plusomar.smugmug.com/Portfolio/i-hncj63G/A" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="portfolio-link"
-        aria-label="View full portfolio gallery featuring La Cueva Ventana photography"
-      >
-        <img 
-          src="https://photos.smugmug.com/Portfolio/i-hncj63G/0/KgCbQxBhdDdTQJwWM2qLRPDfDN3mmxmk4hv3prvm5/L/omarcave-EditFinal-L.jpg" 
-          alt="La Cueva Ventana cave formation in Puerto Rico, showcasing dramatic natural lighting and rock formations through Omar's professional photography"
-          loading="lazy"
-          decoding="async"
-          width="800"
-          height="256"
+      <!-- Portfolio Preview -->
+      <div class="portfolio-preview">
+        <h3 class="portfolio-title">Featured Photography</h3>
+        <p class="portfolio-description">Explore my photography portfolio featuring landscapes, architecture, and travel photography.</p>
+        <a 
+          href="https://plusomar.smugmug.com/Portfolio/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="portfolio-button"
+          aria-label="View full photography portfolio - Opens in new window"
         >
-      </a>
+          View Portfolio →
+        </a>
+      </div>
     </section>
 
     <!-- Experience Section -->

@@ -522,7 +522,7 @@ button {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 32px;
-  color: #ccc;
+  color: #e5e5e5; /* Improved contrast from #ccc */
 }
 
 @media (min-width: 640px) {
@@ -538,27 +538,51 @@ button {
   }
 }
 
-.portfolio-link {
-  display: block;
+/* Portfolio Preview */
+.portfolio-preview {
+  background: linear-gradient(135deg, #303030 0%, #404040 100%);
+  border-radius: 12px;
+  padding: 32px;
   margin-bottom: 48px;
+  text-align: center;
+  border: 1px solid #555;
+}
+
+.portfolio-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.portfolio-description {
+  font-size: 16px;
+  color: #e5e5e5;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.portfolio-button {
+  display: inline-block;
+  background: #d26249;
+  color: #ffffff;
+  padding: 12px 24px;
   border-radius: 8px;
-  overflow: hidden;
-  transition: opacity 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #d26249;
 }
 
-.portfolio-link:hover {
-  opacity: 0.9;
+.portfolio-button:hover {
+  background: #b8553f;
+  border-color: #b8553f;
+  transform: translateY(-2px);
 }
 
-.portfolio-link:focus {
-  outline: 2px solid #d26249;
+.portfolio-button:focus {
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
-}
-
-.portfolio-link img {
-  width: 100%;
-  height: 256px;
-  object-fit: cover;
 }
 
 /* Section Titles */
@@ -617,7 +641,7 @@ button {
 
 .timeline-company {
   font-size: 14px;
-  color: #ccc;
+  color: #e5e5e5; /* Improved contrast from #ccc */
   margin-bottom: 4px;
 }
 
@@ -629,7 +653,7 @@ button {
 
 .timeline-period {
   font-size: 12px;
-  color: #9ca3af;
+  color: #d1d5db; /* Improved contrast from #9ca3af */
 }
 
 @media (min-width: 640px) {
