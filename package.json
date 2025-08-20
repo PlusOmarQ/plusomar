@@ -1,7 +1,7 @@
 {
-  "name": "plusomar-vanilla",
-  "version": "1.0.0",
-  "description": "Omar AlQabandi's portfolio website - Vanilla HTML/CSS/JS version",
+  "name": "plusomar-portfolio",
+  "version": "2.0.0",
+  "description": "Omar AlQabandi's portfolio website - High-performance vanilla HTML/CSS/JS",
   "main": "index.html",
   "scripts": {
     "serve": "python -m http.server 8080",
@@ -16,9 +16,12 @@
     "css",
     "javascript",
     "responsive",
-    "accessibility"
+    "accessibility",
+    "performance",
+    "omar-alqabandi",
+    "plusomar"
   ],
-  "author": "Omar AlQabandi",
+  "author": "Omar AlQabandi <omar@plusomar.com>",
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^6.0.0",
@@ -31,5 +34,10 @@
   "homepage": "https://plusomarq.github.io/plusomar/",
   "engines": {
     "node": ">=14.0.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
