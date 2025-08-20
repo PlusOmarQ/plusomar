@@ -1,0 +1,35 @@
+{
+  "name": "plusomar-vanilla",
+  "version": "1.0.0",
+  "description": "Omar AlQabandi's portfolio website - Vanilla HTML/CSS/JS version",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python -m http.server 8080",
+    "serve-node": "npx http-server . -p 8080 -c-1",
+    "deploy": "gh-pages -d .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "portfolio",
+    "vanilla-js",
+    "html",
+    "css",
+    "javascript",
+    "responsive",
+    "accessibility"
+  ],
+  "author": "Omar AlQabandi",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.0.0",
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlusOmarQ/plusomar.git"
+  },
+  "homepage": "https://plusomarq.github.io/plusomar/",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
